@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "strict": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "lib": ["es2016"],
+    "module": "commonjs",
+    "target": "es2015"
+  },
+
+  "exclude": ["./test", "./dist"]
+}
