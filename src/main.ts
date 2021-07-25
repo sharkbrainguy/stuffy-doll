@@ -26,12 +26,12 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
 
         for (const embed of getEmbeds(blob)) {
           const html = He.decode(embed);
-          const href = infra.extractIframeSrc(html); // replace with infra
+          const href = infra.extractIframeSrc(html);
           if (href == null) {
             continue;
           }
 
-          yield { href, title }; // yield this
+          yield { href, title };
         }
       }
     }
