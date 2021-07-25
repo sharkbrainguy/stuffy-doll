@@ -13,5 +13,4 @@ const extractQuizUrls = (html: string): Link[] => {
     }));
 };
 
-const impl: ExtractQuizUrls = { extractQuizUrls };
-export default impl;
+export default { extractQuizUrls } as ExtractQuizUrls;
