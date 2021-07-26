@@ -2,6 +2,7 @@ import type { Infra } from './infra';
 import type { Json } from './json';
 import type { StuffBlob } from './stuff-blob';
 import type { Link } from './link';
+import toTimestamp from './to-timestamp';
 import getEmbeds from './get-embeds';
 import jsonParse from './json-parse';
 import * as He from 'he';
@@ -12,6 +13,12 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
   );
 
   for (const { href, title } of infra.extractQuizUrls(listPage)) {
+    const timestamp = toTimestamp(infra.now());
+
+    if (title.indexOf('Sport') !== -1 || title.indexOf(timestamp) === -1) {
+      continue;
+    }
+
     const html = await infra.fetchString(`https://i.stuff.co.nz${href}`);
     const scripts = infra.extractScriptBodies(html);
 
