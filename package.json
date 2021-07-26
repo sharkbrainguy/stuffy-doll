@@ -9,7 +9,7 @@
     "dist"
   ],
   "bin": {
-    "stuffy-doll": "node ./bin.js"
+    "stuffy-doll": "./bin.js"
   },
   "scripts": {
     "prepare": "tsc -p tsconfig.json",
