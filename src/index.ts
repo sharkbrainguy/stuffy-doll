@@ -1,4 +1,5 @@
-import { Infra } from './infra';
+import type { Infra } from './infra';
+import type { Link } from './link';
 import extractIframeSrc from './extract-iframe-src';
 import extractQuizUrls from './extract-quiz-urls';
 import extractScriptBodies from './extract-script-bodies';
@@ -12,18 +13,4 @@ const infra: Infra = {
   ...extractScriptBodies,
 };
 
-const main_ = async () => {
-  for await (const data of main(infra)) {
-    console.log(data);
-  }
-};
-
-main_().then(
-  () => {
-    return;
-  },
-  (e) => {
-    console.error('fuck', e);
-    process.exitCode = 1;
-  }
-);
+export default (): AsyncGenerator<Link> => main(infra);

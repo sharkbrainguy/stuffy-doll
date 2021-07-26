@@ -5,8 +5,12 @@
   "description": "Steal stuff quizzes, using theft",
   "main": "dist/index.js",
   "files": [
+    "bin.js",
     "dist"
   ],
+  "bin": {
+    "stuffy-doll": "node ./bin.js"
+  },
   "scripts": {
     "prepare": "tsc -p tsconfig.json",
     "test": "jest",
