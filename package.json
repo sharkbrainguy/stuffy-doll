@@ -1,7 +1,7 @@
 {
   "name": "stuffy-doll",
   "author": "gerard@gerardpaapu.com",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Steal stuff quizzes, using theft",
   "main": "dist/index.js",
   "files": [
