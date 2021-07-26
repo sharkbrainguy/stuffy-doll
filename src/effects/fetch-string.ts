@@ -1,5 +1,5 @@
 import * as Https from 'https';
-import type { FetchString } from './infra';
+import type { FetchString } from '../infra';
 
 const fetchString = (uri: string) =>
   new Promise<string>((resolve, reject) => {

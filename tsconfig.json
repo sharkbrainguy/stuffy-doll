@@ -10,9 +10,8 @@
     "strict": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "lib": ["es2016"],
     "module": "commonjs",
-    "target": "es2015"
+    "target": "es2019"
   },
 
   "exclude": ["./test", "./dist"]

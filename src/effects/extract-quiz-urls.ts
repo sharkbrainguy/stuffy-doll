@@ -1,6 +1,6 @@
 import * as Cheerio from 'cheerio';
-import type { Link } from './link';
-import type { ExtractQuizUrls } from './infra';
+import type { Link } from '../link';
+import type { ExtractQuizUrls } from '../infra';
 
 const extractQuizUrls = (html: string): Link[] => {
   const $ = Cheerio.load(html);

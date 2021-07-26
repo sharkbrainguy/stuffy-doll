@@ -1,5 +1,5 @@
 import * as Cheerio from 'cheerio';
-import type { ExtractScriptBodies } from './infra';
+import type { ExtractScriptBodies } from '../infra';
 
 const extractScriptBodies = (html: string): string[] => {
   /* eslint-disable */
