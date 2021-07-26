@@ -3,6 +3,10 @@
   "author": "gerard@gerardpaapu.com",
   "version": "1.1.1",
   "description": "Steal stuff quizzes, using theft",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sharkbrainguy/stuffy-doll.git"
+  },
   "main": "dist/index.js",
   "files": [
     "bin.js",
