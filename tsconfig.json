@@ -11,7 +11,8 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "module": "commonjs",
-    "target": "es2019"
+    "target": "es2019",
+    "sourceMap": true
   },
 
   "exclude": ["./test", "./dist"]
