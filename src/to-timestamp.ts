@@ -1,22 +1,13 @@
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+export default (date: Date): string => {
+  const month = date.toLocaleString('en-NZ', {
+    timeZone: 'Pacific/Auckland',
+    month: 'long',
+  });
 
-export default (date: Date, targetTimeZone: string): string => {
-  const convertedDate = new Date(
-    date.toLocaleString('en-US', { timeZone: targetTimeZone })
-  );
+  const day = date.toLocaleString('en-NZ', {
+    timeZone: 'Pacific/Auckland',
+    day: 'numeric',
+  });
 
-  return `${months[convertedDate.getMonth()]} ${convertedDate.getDate()}`;
+  return `${month} ${day}`;
 };
