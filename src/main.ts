@@ -13,7 +13,7 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
   );
 
   for (const { href, title } of infra.extractQuizUrls(listPage)) {
-    const timestamp = toTimestamp(infra.now());
+    const timestamp = toTimestamp(infra.now(), 'Pacific/Auckland');
 
     if (title.indexOf('Sport') !== -1 || title.indexOf(timestamp) === -1) {
       continue;

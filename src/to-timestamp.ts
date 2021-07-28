@@ -1,3 +1,5 @@
+import moment from 'moment-timezone';
+
 const months = [
   'January',
   'February',
@@ -13,5 +15,8 @@ const months = [
   'December',
 ];
 
-export default (date: Date): string =>
-  `${months[date.getMonth()]} ${date.getDate()}`;
+export default (date: Date, targetTimeZone: string): string => {
+  const targetMoment = moment(date).tz(targetTimeZone);
+
+  return `${months[targetMoment.month()]} ${targetMoment.date()}`;
+};
