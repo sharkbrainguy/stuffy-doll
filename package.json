@@ -37,9 +37,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "@types/cheerio": "^0.22.30",
-    "@types/he": "^1.1.2",
     "@types/node": "^16.4.1",
-    "cheerio": "^1.0.0-rc.10"
+    "tag-soup": "0.0.2"
   }
 }
