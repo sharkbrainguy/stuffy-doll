@@ -1,7 +1,5 @@
 import type { FetchJson } from '../infra';
-import type { Json } from '../json';
 import Https from 'https';
-import jsonParse from '../json-parse';
 
 const fetchJson = <T>(uri: string): Promise<T> => {
   return new Promise((resolve, reject) => {
@@ -14,8 +12,7 @@ const fetchJson = <T>(uri: string): Promise<T> => {
 
       res.on('end', () => {
         try {
-          const json = jsonParse(body as Json<T>);
-          resolve(json);
+          resolve(JSON.parse(body) as T);
         } catch (error) {
           reject(error);
         }

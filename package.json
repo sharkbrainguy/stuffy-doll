@@ -1,7 +1,7 @@
 {
   "name": "stuffy-doll",
   "author": "gerard@gerardpaapu.com",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Steal stuff quizzes, using theft",
   "repository": {
     "type": "git",
@@ -37,9 +37,7 @@
     "typescript": "^4.3.2"
   },
   "dependencies": {
-    "@types/cheerio": "^0.22.30",
-    "@types/he": "^1.1.2",
     "@types/node": "^16.4.1",
-    "cheerio": "^1.0.0-rc.10"
+    "tag-soup": "0.0.2"
   }
 }
