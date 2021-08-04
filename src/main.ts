@@ -9,8 +9,7 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
     `https://i.stuff.co.nz/_json/national/quizzes`
   );
 
-  for (const story of recentQuizzes.stories) {
-    const { title, html_assets } = story;
+  for (const { title, html_assets } of recentQuizzes.stories) {
     const timestamp = toTimestamp(infra.now());
 
     if (title.indexOf('Sport') !== -1 || title.indexOf(timestamp) === -1) {
