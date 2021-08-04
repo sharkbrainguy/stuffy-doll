@@ -5,6 +5,10 @@ export interface FetchString {
   fetchString(url: string): Promise<string>;
 }
 
+export interface FetchJson {
+  fetchJson<T>(url: string): Promise<T>;
+}
+
 export interface ExtractQuizUrls {
   extractQuizUrls(html: string): Link[];
 }
@@ -27,6 +31,7 @@ export interface Logger {
 
 export interface Infra
   extends FetchString,
+    FetchJson,
     ExtractQuizUrls,
     ExtractScriptBodies,
     ExtractIframeSrc,

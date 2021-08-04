@@ -6,20 +6,21 @@ import toTimestamp from './to-timestamp';
 import getEmbeds from './get-embeds';
 import jsonParse from './json-parse';
 import * as He from 'he';
+import Stories from './quizzes';
 
 async function* main(infra: Infra): AsyncGenerator<Link> {
-  const listPage = await infra.fetchString(
-    `https://i.stuff.co.nz/national/quizzes`
+  const recentQuizzes = await infra.fetchJson<Stories>(
+    `https://i.stuff.co.nz/_json/national/quizzes`
   );
 
-  for (const { href, title } of infra.extractQuizUrls(listPage)) {
+  for (const { path, title } of recentQuizzes.stories) {
     const timestamp = toTimestamp(infra.now());
 
     if (title.indexOf('Sport') !== -1 || title.indexOf(timestamp) === -1) {
       continue;
     }
 
-    const html = await infra.fetchString(`https://i.stuff.co.nz${href}`);
+    const html = await infra.fetchString(`https://i.stuff.co.nz${path}`);
     const scripts = infra.extractScriptBodies(html);
 
     for (const script of scripts) {
