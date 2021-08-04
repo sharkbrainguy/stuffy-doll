@@ -1,7 +1,6 @@
 import type { Infra } from './infra';
 import type { Link } from './link';
 import toTimestamp from './to-timestamp';
-import * as He from 'he';
 import Stories from './quizzes';
 
 async function* main(infra: Infra): AsyncGenerator<Link> {
@@ -17,8 +16,7 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
     }
 
     for (const asset of html_assets) {
-      const s = He.decode(asset.data_content);
-      const href = infra.extractIframeSrc(s);
+      const href = infra.extractIframeSrc(asset.data_content);
       if (href == null) {
         continue;
       }
