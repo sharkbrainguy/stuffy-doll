@@ -1,16 +1,12 @@
 import type { Link } from './link';
 import type { LogLevel } from './log-level';
 
-export interface FetchString {
-  fetchString(url: string): Promise<string>;
+export interface FetchJson {
+  fetchJson<T>(url: string): Promise<T>;
 }
 
 export interface ExtractQuizUrls {
   extractQuizUrls(html: string): Link[];
-}
-
-export interface ExtractScriptBodies {
-  extractScriptBodies(html: string): string[];
 }
 
 export interface ExtractIframeSrc {
@@ -26,9 +22,8 @@ export interface Logger {
 }
 
 export interface Infra
-  extends FetchString,
+  extends FetchJson,
     ExtractQuizUrls,
-    ExtractScriptBodies,
     ExtractIframeSrc,
     Logger,
     Now {}
