@@ -8,10 +8,17 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
     `https://i.stuff.co.nz/_json/national/quizzes`
   );
 
-  for (const { title, html_assets, datetime_display } of recentQuizzes.stories) {
+  for (const {
+    title,
+    html_assets,
+    datetime_display,
+  } of recentQuizzes.stories) {
     const timestamp = toTimestamp(infra.now());
 
-    if (title.indexOf('Sport') !== -1 || datetime_display.indexOf(timestamp) === -1) {
+    if (
+      title.indexOf('Sport') !== -1 ||
+      datetime_display.indexOf(timestamp) === -1
+    ) {
       continue;
     }
 
