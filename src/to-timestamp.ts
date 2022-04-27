@@ -1,13 +1,18 @@
 export default (date: Date): string => {
   const month = date.toLocaleString('en-NZ', {
     timeZone: 'Pacific/Auckland',
-    month: 'long',
+    month: '2-digit',
   });
 
   const day = date.toLocaleString('en-NZ', {
     timeZone: 'Pacific/Auckland',
-    day: 'numeric',
+    day: '2-digit',
   });
 
-  return `${month} ${day}`;
+  const year = date.toLocaleString('en-NZ', {
+    timeZone: 'Pacific/Auckland',
+    year: 'numeric',
+  });
+
+  return `${day}/${month}/${year}`;
 };
