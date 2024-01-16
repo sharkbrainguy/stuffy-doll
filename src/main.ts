@@ -5,7 +5,7 @@ import Stories from './quizzes';
 
 async function* main(infra: Infra): AsyncGenerator<Link> {
   const recentQuizzes = await infra.fetchJson<Stories>(
-    `https://i.stuff.co.nz/_json/national/quizzes`
+    `https://www.stuff.co.nz/_json/national/quizzes`
   );
 
   for (const {
