@@ -14,5 +14,5 @@ export default (date: Date): string => {
     year: 'numeric',
   });
 
-  return `${day}/${month}/${year}`;
+  return `${year}-${month}-${day}`;
 };
