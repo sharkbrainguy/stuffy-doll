@@ -1,16 +1,28 @@
-type HtmlAsset = {
-  data_content: string;
-};
-
 type Story = {
-  path: string;
-  title: string;
-  html_assets: HtmlAsset[];
-  datetime_display: string;
+  content: { title: string };
+  id: number;
+  date: string;
 };
 
-type Quizzes = {
+type StoryList = {
   stories: Story[];
 };
 
-export default Quizzes;
+export type ListPage = {
+  data: StoryList[];
+};
+
+export type WidgetAsset = {
+  type: 'WIDGET';
+  item: {
+    content: string;
+  };
+};
+
+export type ImageAsset = { type: 'IMAGE' };
+
+export type Asset = WidgetAsset | ImageAsset;
+
+export type StoryDetail = {
+  content: { contentBody: { assets: Asset[] } };
+};
