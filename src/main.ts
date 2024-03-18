@@ -1,6 +1,5 @@
 import type { Infra } from './infra';
 import type { Link } from './link';
-// import toTimestamp from './to-timestamp';
 import type { ListPage, StoryDetail } from './quizzes';
 import toTimestamp from './to-timestamp';
 
@@ -25,6 +24,9 @@ async function* main(infra: Infra): AsyncGenerator<Link> {
   );
   const now = infra.now();
   for (const datum of recentQuizzes.data) {
+    // Skip datum that has no stories
+    if (datum.stories === undefined) continue;
+
     for (const story of datum.stories) {
       const title = story.content.title;
       const date = new Date(story.date);

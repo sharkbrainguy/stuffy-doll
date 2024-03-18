@@ -5,7 +5,7 @@ type Story = {
 };
 
 type StoryList = {
-  stories: Story[];
+  stories?: Story[];
 };
 
 export type ListPage = {
