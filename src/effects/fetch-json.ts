@@ -1,26 +1,14 @@
 import type { FetchJson } from '../infra';
-import Https from 'https';
 
-const fetchJson = <T>(uri: string): Promise<T> => {
-  return new Promise((resolve, reject) => {
-    Https.get(uri, (res) => {
-      let body = '';
-
-      res.on('data', (chunk) => {
-        body += chunk;
-      });
-
-      res.on('end', () => {
-        try {
-          resolve(JSON.parse(body) as T);
-        } catch (error) {
-          reject(error);
-        }
-      });
-    }).on('error', (error) => {
-      reject(error);
-    });
-  });
+const fetchJson = async <T>(uri: string): Promise<T> => {
+  const response = await fetch(uri);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch ${uri}: ${response.status} ${response.statusText}`
+    );
+  }
+  const result = (await response.json()) as T;
+  return result;
 };
 
 export default { fetchJson } as FetchJson;

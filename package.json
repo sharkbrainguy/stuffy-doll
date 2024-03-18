@@ -24,6 +24,9 @@
     "lint:fix": "eslint --fix src/**/*.ts"
   },
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^27.0.0",
     "@types/node": "^16.11.7",
